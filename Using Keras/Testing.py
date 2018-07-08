@@ -9,7 +9,7 @@ start = time.time()
 #Define Path
 model_path = './models/model.h5'
 model_weights_path = './models/weights.h5'
-test_path = 'data/test'
+test_path = 'data/alien_test'
 
 #Load the pre-trained models
 model = load_model(model_path)
