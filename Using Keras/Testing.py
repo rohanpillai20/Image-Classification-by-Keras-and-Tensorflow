@@ -6,13 +6,19 @@ import time
 
 start = time.time()
 
-img_width, img_height = 150, 150
+#Define Path
 model_path = './models/model.h5'
 model_weights_path = './models/weights.h5'
+test_path = 'data/test'
+
+#Load the pre-trained models
 model = load_model(model_path)
 model.load_weights(model_weights_path)
 
+#Define image parameters
+img_width, img_height = 150, 150
 
+#Prediction Function
 def predict(file):
   x = load_img(file, target_size=(img_width,img_height))
   x = img_to_array(x)
@@ -30,7 +36,8 @@ def predict(file):
 
   return answer
 
-for i, ret in enumerate(os.walk('data/alien_test')):
+#Walk the directory for every image
+for i, ret in enumerate(os.walk(test_path)):
   for i, filename in enumerate(ret[2]):
     if filename.startswith("."):
       continue
@@ -39,7 +46,7 @@ for i, ret in enumerate(os.walk('data/alien_test')):
     result = predict(ret[0] + '/' + filename)
     print(" ")
 
-
+#Calculate execution time
 end = time.time()
 dur = end-start
 
