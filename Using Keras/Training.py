@@ -100,6 +100,7 @@ if not os.path.exists(target_dir):
 model.save('./models/model.h5')
 model.save_weights('./models/weights.h5')
 
+#Calculate execution time
 end = time.time()
 dur = end-start
 
