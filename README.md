@@ -14,13 +14,13 @@ keras==2.2.0<br>
 numpy==1.14.5<br>
 
 ### Implementation using Tensorflow
-dataset==1.1.0<br>
-tensorflow==1.4.0<br>
-numpy==1.14.5<br>
 os<br>
 time<br>
 cv2<br>
 glob<br>
+dataset==1.1.0<br>
+tensorflow==1.4.0<br>
+numpy==1.14.5<br>
 sklearn==0.19.1<br>
 
 ## Steps
