@@ -1,0 +1,1 @@
+While execution of Training.py, if there is an AssertionError, change the variable batch_size to a different value that is a factor of the total training images. To change the batch_size in Training.py, go to line number 14 and change the value.
