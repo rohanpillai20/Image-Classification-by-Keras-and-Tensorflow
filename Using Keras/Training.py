@@ -6,6 +6,8 @@ from keras.models import Sequential
 from keras.layers import Dropout, Flatten, Dense, Activation
 from keras.layers.convolutional import Convolution2D, MaxPooling2D
 from keras import callbacks
+from tensorflow.python.keras.layers import Input, Dense
+from tensorflow.contrib import keras
 import time
 
 start = time.time()
@@ -86,8 +88,15 @@ log_dir = './tf-log/'
 tb_cb = callbacks.TensorBoard(log_dir=log_dir, histogram_freq=0)
 cbks = [tb_cb]
 
+model.add(Flatten())
+model.add(Dense(256))
+model.add(Activation("relu"))
+model.add(Dropout(0.5))
+model.add(Dense(classes_num, activation='softmax'))
+
 model.fit_generator(
     train_generator,
+    test_generator,
     samples_per_epoch=samples_per_epoch,
     epochs=epochs,
     validation_data=validation_generator,
