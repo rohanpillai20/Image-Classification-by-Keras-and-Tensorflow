@@ -6,7 +6,7 @@ Create sub-folders of all the classes of images. For example, if you want to tra
 
 data
  |
- |-train
+ |-test
      |
      |-Chair
          |
