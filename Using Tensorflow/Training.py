@@ -85,6 +85,19 @@ pyplot.ylabel('Mean Accuracy (LOOCV)')
 
 pyplot.show()
 
+folds = range(2,31)
+means, mins, maxs = list(),list(),list()
+for k in folds:
+	cv = KFold(n_splits=k, shuffle=True, random_state=1)
+	k_mean, k_min, k_max = evaluate_model(cv)
+	print('> folds=%d, accuracy=%.3f (%.3f,%.3f)' % (k, k_mean, k_min, k_max))
+	means.append(k_mean)
+	mins.append(k_mean - k_min)
+	maxs.append(k_max - k_mean)
+pyplot.errorbar(folds, means, yerr=[mins, maxs], fmt='o')
+pyplot.plot(folds, [ideal for _ in range(len(folds))], color='r')
+pyplot.show()
+
 start = time.time()
 try:
 
