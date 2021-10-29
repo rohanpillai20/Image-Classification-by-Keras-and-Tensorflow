@@ -3,7 +3,24 @@ import os
 import glob
 from sklearn.utils import shuffle
 import numpy as np
+import pandas as pd
+from sklearn.datasets import load_iris
+# Import seaborn
+import seaborn as sns
 
+# Check out available datasets
+print(sns.get_dataset_names())
+
+# Load data
+iris = load_iris()
+# Create a dataframe
+X = pd.DataFrame(iris['data'], columns=iris['feature_names'])
+y = pd.DataFrame(iris['target'], columns=['target'])
+df = X.join(y)
+# Map target names (only for categorical target)
+df['target'].replace(dict(enumerate(iris['target_names'])), 
+                     inplace=True)
+glimpse(df)
 
 def load_train(train_path, image_size, classes):
     images = []
