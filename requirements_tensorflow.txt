@@ -4,5 +4,5 @@ cv2
 glob
 dataset==1.1.0
 tensorflow==1.15.2
-numpy==1.14.5
+numpy==1.22.0
 sklearn==0.19.1
