@@ -2,4 +2,4 @@ sys
 os
 time
 keras==2.2.0
-numpy==1.14.5
+numpy==1.22.0
